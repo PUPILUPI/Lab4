@@ -7,11 +7,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URL;
 
 public class Provider {
-    private File file;
+    private final File file;
     private XSSFWorkbook wb;
 
     public Provider(String path) {
