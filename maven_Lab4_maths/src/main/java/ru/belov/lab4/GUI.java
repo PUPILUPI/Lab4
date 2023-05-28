@@ -57,7 +57,14 @@ public class GUI extends JFrame {
     private void doImport(ActionEvent event) {
         try {
             dm = new DataManipulation();
-            dm.loadData("src/main/java/ru/belov/lab4/sources/ДЗ4.xlsx");
+            JFileChooser fileChooser =
+                    new JFileChooser();
+            int ret = fileChooser.showDialog(null, "Choose file");
+            if (ret != JFileChooser.APPROVE_OPTION) {
+                return;
+            }
+            String path = fileChooser.getSelectedFile().getAbsolutePath();
+            dm.loadData(path);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Произошла ошибка при записи файла", "Ok", JOptionPane.INFORMATION_MESSAGE);
         } catch (InvalidFormatException e) {
